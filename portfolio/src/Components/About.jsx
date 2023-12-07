@@ -10,10 +10,19 @@ import dsa from "../Images/DSA-structure.png";
 export const About = () => {
   return (
     <Box mt="50px" mb="50px">
-      <Heading textAlign="center" mb="30px">About</Heading>
-      <Flex w="90%" m="auto" justifyContent="space-between" gap={3} >
+      <Heading textAlign="center" mb="30px">
+        About
+      </Heading>
+      <Flex w="90%" m="auto" justifyContent="space-between" gap={3}>
         <Box w="50%">
-          <Image src={pavan2} alt="dev logo" w="70%" borderRadius="50%" border="1px solid"mt="30px"/>
+          <Image
+            src={pavan2}
+            alt="dev logo"
+            w="70%"
+            borderRadius="50%"
+            border="1px solid"
+            mt="30px"
+          />
         </Box>
         <Box w="50%">
           <Flex
@@ -83,8 +92,12 @@ export const About = () => {
                 m="auto"
                 mb="10px"
               />
-              <Text fontSize="14px" mb="10px" color="black" fontWeight="bold">DSA</Text>
-              <Text fontSize="12px" color="black">500+</Text>
+              <Text fontSize="14px" mb="10px" color="black" fontWeight="bold">
+                DSA
+              </Text>
+              <Text fontSize="12px" color="black">
+                500+
+              </Text>
             </Box>
           </Flex>
           <Box mt="40px">

@@ -62,7 +62,7 @@ export const GitHub = () => {
         >
           <GitHubCalendar
             style={calendarStyle}
-            username="Leeladhar206"
+            username="PavanBhaskarThota"
             blockSize={9}
             hideColorLegend
             transformData={selectLastHalfYear}

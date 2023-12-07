@@ -1,20 +1,22 @@
-import { Heading } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import React from "react";
 import styled from "styled-components";
 export const Navbar = () => {
   return (
-    <DIV>
-      <div className="pblogo">
-        <Heading>Pavan.dev</Heading>
-      </div>
-      <div className="links">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/skills">Skills</a>
-        <a href="/projects">Projects</a>
-        <a href="/contact">Contact</a>
-      </div>
-    </DIV>
+    <Box bgColor={'white'}>
+      <DIV>
+        <div className="pblogo" id="nav-menu">
+          <Heading>Pavan.dev</Heading>
+        </div>
+        <div className="links">
+          <a className="nav-link home" href="/">Home</a>
+          <a className="nav-link about" href="/about">About</a>
+          <a className="nav-link skills" href="/skills">Skills</a>
+          <a className="nav-link projects" href="/projects">Projects</a>
+          <a className="nav-link contact" href="/contact">Contact</a>
+        </div>
+      </DIV>
+    </Box>
   );
 };
 

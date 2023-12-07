@@ -37,7 +37,7 @@ export const Contact = () => {
             <Input mt={3} type="text" placeholder="Your Name" />
 
             <Textarea mt={3} placeholder="Write your message" />
-            <Button m={'auto'} mt={5} display={'block'}>Send</Button>
+            <Button m={'auto'} mt={5} display={'block'} bgColor={'#0a194e'} borderRadius={"20px"} w={'40%'} color={'white'}>Send</Button>
           </FormControl>
         </Box>
         <Box

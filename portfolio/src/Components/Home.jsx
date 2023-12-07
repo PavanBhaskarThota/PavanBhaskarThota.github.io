@@ -56,6 +56,7 @@ export const Home = () => {
         borderImage="linear-gradient(to right, rgba(0,0,0,0.3), #000)"
       >
         <Image
+          className="home-img"
           display="block"
           m="auto"
           borderRadius="50%"
@@ -117,9 +118,9 @@ const MERN = styled.div`
     100% {
       transform: translateX(-14px);
     }
-  } */
+  }
 
-  /* .loading:after {
+  .loading:after {
     content: "";
     background: #00030f;
     width: 14px;

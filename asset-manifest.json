@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ef555312.css",
-    "main.js": "/static/js/main.a6a85fce.js",
+    "main.js": "/static/js/main.3fc8e611.js",
     "static/js/787.f83f5913.chunk.js": "/static/js/787.f83f5913.chunk.js",
     "static/media/Tripwiz.png": "/static/media/Tripwiz.ff28310a7e2da8bc4cf0.png",
     "static/media/Funiro.png": "/static/media/Funiro.9f506d8c74af62e258af.png",
@@ -27,17 +27,17 @@
     "static/media/icons8-chakra-ui (1).svg": "/static/media/icons8-chakra-ui (1).bc29a5401cb2a9a3fe0ad57298a25f29.svg",
     "static/media/hamburger-menu-svgrepo-com2.svg": "/static/media/hamburger-menu-svgrepo-com2.67167a98a712d5cbe2788ad1df6a6528.svg",
     "static/media/CSS.svg": "/static/media/CSS.e011a982c5e5f19477130e113de2e325.svg",
+    "static/media/up-arrow-svgrepo-com.svg": "/static/media/up-arrow-svgrepo-com.473f92daae39ff41449c2e08827cfec2.svg",
     "static/media/HTML.svg": "/static/media/HTML.f1f2fbc5196fd77aa0e2b99feb9515bb.svg",
-    "static/media/up-arrow-svgrepo-com.svg": "/static/media/up-arrow-svgrepo-com.74ef0788cd14b6dedb1bd9a2c849c831.svg",
     "static/media/linkedin-svgrepo-com.svg": "/static/media/linkedin-svgrepo-com.96f50ec8955d72971bb70f60446e5f7f.svg",
     "index.html": "/index.html",
     "static/media/Coding.svg": "/static/media/Coding.6ff110adbc04dd8b34830ba58a523722.svg",
     "main.ef555312.css.map": "/static/css/main.ef555312.css.map",
-    "main.a6a85fce.js.map": "/static/js/main.a6a85fce.js.map",
+    "main.3fc8e611.js.map": "/static/js/main.3fc8e611.js.map",
     "787.f83f5913.chunk.js.map": "/static/js/787.f83f5913.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ef555312.css",
-    "static/js/main.a6a85fce.js"
+    "static/js/main.3fc8e611.js"
   ]
 }

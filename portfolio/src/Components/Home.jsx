@@ -1,42 +1,74 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import React from "react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Image,
+  Text,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
+import React, { useEffect } from "react";
 import pavan from "../Images/Pavan.jpg";
 import styled from "styled-components";
+import { Link as RouterLink } from "react-router-dom";
+
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export const Home = () => {
+  const downloadResume = () => {
+    const resumeLink =
+      "https://drive.google.com/file/d/14XxFxDJlsIPQgYlB5G5NN4YsEnwyeNiJ/view?usp=sharing"; // Replace with your actual Google Drive link
+    window.open(resumeLink, "_blank");
+  };
+
+  useEffect(() => {
+    Aos.init({
+      offset: 200,
+    }); // Initialize AOS
+    Aos.refresh();
+  }, []);
+
   return (
     <Flex
       w="85%"
       m="auto"
       justifyContent="space-between"
       gap={3}
-      pt="200px"
+      pt={{ base: "150px", md: "200px" }}
       mb="100px"
+      id="home"
+      direction={{ base: "column", md: "row" }}
+      fontFamily={"sans-serif"}
+      data-aos="fade-up"
     >
-      <Box w="50%">
+      <Box w={{ base: "100%", md: "50%" }} m={"auto"} data-aos="fade-up">
         <Heading
           fontFamily={"sans-serif"}
           bgGradient="linear(to-r, #0a194e, #97a7e1)"
           bgClip="text"
           color="transparent"
+
+          // data-aos-anchor-placement="center-bottom"
+          // data-aos-duration="700"
         >
-          Hi, my
+          Hi,
         </Heading>
         <Heading
           bgGradient="linear(to-r, #0a194e, #97a7e1)"
           bgClip="text"
           color="transparent"
           as="h1"
-          Size="4xl"
+          size="xl"
         >
-          name is Pavan Bhaskar
+          My name is Pavan Bhaskar
         </Heading>
         <Heading
           bgGradient="linear(to-r, #0a194e, #97a7e1)"
           bgClip="text"
           color="transparent"
           as="h1"
-          Size="4xl"
+          size="xl"
         >
           <MERN>
             <div className="loading">
@@ -44,16 +76,41 @@ export const Home = () => {
             </div>
           </MERN>
         </Heading>
-        <Text fontSize="lg" mt="20px">
+        <Text fontSize="lg" mt="20px" id="user-detail-name">
           I like to craft solid and scalable{" "}
           <span style={{ fontWeight: "bold", letterSpacing: "2px" }}>MERN</span>{" "}
           products with great user experiences.
         </Text>
+        <Button
+          bgColor={"#0a194e"}
+          color={"white"}
+          mb={3}
+          mr={3}
+          mt={5}
+          borderRadius={20}
+          id="resume-button-2"
+          onClick={downloadResume}
+          _hover={{
+            backgroundColor: "#ffffff",
+            color: "#0a194e",
+            border: "1px solid #0a194e",
+          }}
+        >
+          <ChakraLink
+            as={RouterLink}
+            to="https://drive.google.com/uc?export=download&id=14XxFxDJlsIPQgYlB5G5NN4YsEnwyeNiJ"
+            textDecoration={"none"}
+          >
+            Resume
+          </ChakraLink>
+        </Button>
       </Box>
 
       <Box
-        width="50%"
-        borderImage="linear-gradient(to right, rgba(0,0,0,0.3), #000)"
+        w={{ base: "100%", md: "50%" }}
+        m={"auto"}
+        borderimage="linear-gradient(to right, rgba(0,0,0,0.3), #000)"
+        data-aos="fade-up"
       >
         <Image
           className="home-img"
@@ -61,9 +118,11 @@ export const Home = () => {
           m="auto"
           borderRadius="50%"
           border="1px solid lightgray"
-          w="70%"
+          w={{ base: "70%", md: "70%" }}
           src={pavan}
           alt="pavan"
+          mt={{ base: "30px" }}
+          data-aos="fade-up"
         />
       </Box>
     </Flex>

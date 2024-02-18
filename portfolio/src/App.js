@@ -14,9 +14,9 @@ function App() {
       <Home />
       <About />
       <Skills />
-      <Projects/>
-      <GitHub/>
-      <Contact/>
+      <Projects />
+      <GitHub />
+      <Contact />
     </div>
   );
 }

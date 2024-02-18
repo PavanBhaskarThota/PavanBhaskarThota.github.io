@@ -1,24 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
 import GitHubCalendar from "react-github-calendar";
 
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 export const GitHub = () => {
   const selectLastHalfYear = (contributions) => {
-    const currentYear = new Date().getFullYear();
-    const currentMonth = new Date().getMonth();
-    const shownMonths = 7;
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+    const monthsToShow = 6;
+
+    let startMonth = currentMonth - monthsToShow + 1;
+    let startYear = currentYear;
+
+    if (startMonth < 0) {
+      startMonth += 12;
+      startYear -= 1;
+    }
 
     return contributions.filter((activity) => {
       const date = new Date(activity.date);
-      const monthOfDay = date.getMonth();
-
-      return (
-        date.getFullYear() === currentYear &&
-        monthOfDay > currentMonth - shownMonths &&
-        monthOfDay <= currentMonth
-      );
+      const activityYear = date.getFullYear();
+      const activityMonth = date.getMonth();
+      if (
+        (activityYear === startYear && activityMonth >= startMonth) ||
+        (activityYear === currentYear && activityMonth <= currentMonth)
+      ) {
+        return true;
+      } else {
+        return false;
+      }
     });
   };
+
+  useEffect(() => {
+    Aos.init(); // Initialize AOS
+  }, []);
 
   const calendarStyle = {
     display: "flex",
@@ -29,13 +48,22 @@ export const GitHub = () => {
   };
 
   return (
-    <Box width="80%" display="flex" flexDirection="column" margin="auto">
+    <Box
+      width="80%"
+      display="flex"
+      flexDirection="column"
+      margin="auto"
+      mt={"20px"}
+    >
       <Text
         fontSize={"3xl"}
         fontWeight={500}
         textAlign={"center"}
         mb={10}
         mt={10}
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
+        data-aos-duration="700"
       >
         GitHub Stats
       </Text>
@@ -55,10 +83,13 @@ export const GitHub = () => {
           display="flex"
           alignItems={"center"}
           justifyContent={"center"}
-          _hover={{
-            bg: "#0a194e",
-            color: "#E6E7EB",
-          }}
+          // _hover={{
+          //   bg: "#0a194e",
+          //   color: "#E6E7EB",
+          // }}
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-duration="700"
         >
           <GitHubCalendar
             style={calendarStyle}
@@ -80,10 +111,13 @@ export const GitHub = () => {
           display="flex"
           alignItems={"center"}
           justifyContent={"center"}
-          _hover={{
-            bg: "#06113C",
-            color: "#E6E7EB",
-          }}
+          // _hover={{
+          //   bg: "#06113C",
+          //   color: "#E6E7EB",
+          // }}
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-duration="700"
         >
           <Image
             id="github-stats-card"
@@ -109,10 +143,13 @@ export const GitHub = () => {
           display="flex"
           alignItems={"center"}
           justifyContent={"center"}
-          _hover={{
-            bg: "#06113C",
-            color: "#E6E7EB",
-          }}
+          // _hover={{
+          //   bg: "#06113C",
+          //   color: "#E6E7EB",
+          // }}
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-duration="700"
         >
           <Image
             id="github-streak-stats"
@@ -129,10 +166,13 @@ export const GitHub = () => {
           display="flex"
           alignItems={"center"}
           justifyContent={"center"}
-          _hover={{
-            bg: "#06113C",
-            color: "#E6E7EB",
-          }}
+          // _hover={{
+          //   bg: "#06113C",
+          //   color: "#E6E7EB",
+          // }}
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-duration="700"
         >
           <Image
             id="github-top-langs"

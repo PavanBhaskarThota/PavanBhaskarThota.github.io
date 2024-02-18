@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Text,
@@ -19,6 +19,9 @@ import express from "../Images/Skills/Express.svg";
 import git from "../Images/Skills/GIT.svg";
 import redux from "../Images/Skills/Redux.svg";
 
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 const frontEnd = [
   { title: "HTML5", image: html },
   { title: "CSS3", image: css },
@@ -38,18 +41,38 @@ const backEnd = [
 export const Skills = () => {
   const skillsPerRow = useBreakpointValue({ base: 3, md: 4, lg: 5 });
 
+  useEffect(() => {
+    Aos.init(); // Initialize AOS
+  }, []);
+
   return (
     <Box
       id="skills"
       w={{ base: "90%", md: "90%", lg: "70%" }}
       margin="auto"
       mt={10}
+      pt={"50px"}
+      fontFamily={"sans-serif"}
     >
-      <Text fontSize={"4xl"} fontWeight={500} textAlign={"center"} mb={6}>
+      <Text
+        fontSize={"4xl"}
+        fontWeight={500}
+        textAlign={"center"}
+        mb={6}
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
         Skills
       </Text>
 
-      <Text fontSize={"2xl"} fontWeight={500} textAlign={"center"} mb={6}>
+      <Text
+        fontSize={"2xl"}
+        fontWeight={500}
+        textAlign={"center"}
+        mb={6}
+        data-aos="fade-up"
+        data-aos-duration="700"
+      >
         FrontEnd
       </Text>
 
@@ -58,13 +81,22 @@ export const Skills = () => {
         gap={{ base: 3, md: 5, lg: 7 }}
         justifyContent="space-between"
         p={5}
+        data-aos="fade-up"
+        data-aos-duration="700"
       >
         {frontEnd.map((skill, index) => (
           <FrontEnd key={index} title={skill.title} image={skill.image} />
         ))}
       </Grid>
 
-      <Text fontSize={"2xl"} fontWeight={500} textAlign={"center"} mb={6}>
+      <Text
+        fontSize={"2xl"}
+        fontWeight={500}
+        textAlign={"center"}
+        mb={6}
+        data-aos="fade-up"
+        data-aos-duration="700"
+      >
         BackEnd
       </Text>
 
@@ -73,6 +105,8 @@ export const Skills = () => {
         gap={{ base: 3, md: 5, lg: 7 }}
         justifyContent="space-between"
         p={5}
+        data-aos="fade-up"
+        data-aos-duration="700"
       >
         {backEnd.map((skill, index) => (
           <BackEnd key={index} title={skill.title} image={skill.image} />
@@ -88,13 +122,7 @@ const FrontEnd = ({ title, image }) => {
       align="center"
       border="0.5px solid lightgray"
       borderRadius="lg"
-      // boxShadow="lg"
-      // m={3}
-      // maxW={"160px"}
-      // className="skills-card"
-      // _hover={{
-      //   bg: "#FFFFFF",
-      // }}
+      className="skills-card"
     >
       <Image
         className="skills-card-img"
@@ -118,18 +146,7 @@ const FrontEnd = ({ title, image }) => {
 
 const BackEnd = ({ title, image }) => {
   return (
-    <VStack
-      align="center"
-      border="0.5px solid lightgray"
-      borderRadius="lg"
-      // boxShadow="lg"
-      // m={3}
-      // maxW={"160px"}
-      // className="skills-card"
-      // _hover={{
-      //   bg: "#FFFFFF",
-      // }}
-    >
+    <VStack align="center" border="0.5px solid lightgray" borderRadius="lg">
       <Image
         className="skills-card-img"
         src={image}

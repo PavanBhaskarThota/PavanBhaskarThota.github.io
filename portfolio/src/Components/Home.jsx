@@ -14,18 +14,21 @@ import { Link as RouterLink } from "react-router-dom";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 
 export const Home = () => {
+  const { theme } = useContext(ThemeContext);
   const downloadResume = () => {
     const resumeLink =
-      "https://drive.google.com/file/d/14XxFxDJlsIPQgYlB5G5NN4YsEnwyeNiJ/view?usp=sharing"; // Replace with your actual Google Drive link
+      "https://drive.google.com/file/d/1zizFswuwsDPp8SBMjYJQcO-qCULT_q3V/view?usp=sharing";
     window.open(resumeLink, "_blank");
   };
 
   useEffect(() => {
     Aos.init({
       offset: 200,
-    }); // Initialize AOS
+    });
     Aos.refresh();
   }, []);
 
@@ -40,22 +43,27 @@ export const Home = () => {
       id="home"
       direction={{ base: "column", md: "row" }}
       fontFamily={"sans-serif"}
-      data-aos="fade-up"
+      color={theme === "dark" ? "white" : "transparent"}
     >
-      <Box w={{ base: "100%", md: "50%" }} m={"auto"} data-aos="fade-up">
+      <Box w={{ base: "100%", md: "50%" }} m={"auto"}>
         <Heading
           fontFamily={"sans-serif"}
-          bgGradient="linear(to-r, #0a194e, #97a7e1)"
+          bgGradient={
+            theme === "dark"
+              ? "linear(to-r, #e4e9f5, #c3dafe)"
+              : "linear(to-r, #0a194e, #97a7e1)"
+          }
           bgClip="text"
           color="transparent"
-
-          // data-aos-anchor-placement="center-bottom"
-          // data-aos-duration="700"
         >
           Hi,
         </Heading>
         <Heading
-          bgGradient="linear(to-r, #0a194e, #97a7e1)"
+          bgGradient={
+            theme === "dark"
+              ? "linear(to-r, #e4e9f5, #c3dafe)"
+              : "linear(to-r, #0a194e, #97a7e1)"
+          }
           bgClip="text"
           color="transparent"
           as="h1"
@@ -64,7 +72,11 @@ export const Home = () => {
           My name is Pavan Bhaskar
         </Heading>
         <Heading
-          bgGradient="linear(to-r, #0a194e, #97a7e1)"
+          bgGradient={
+            theme === "dark"
+              ? "linear(to-r, #e4e9f5, #c3dafe)"
+              : "linear(to-r, #0a194e, #97a7e1)"
+          }
           bgClip="text"
           color="transparent"
           as="h1"
@@ -110,7 +122,6 @@ export const Home = () => {
         w={{ base: "100%", md: "50%" }}
         m={"auto"}
         borderimage="linear-gradient(to right, rgba(0,0,0,0.3), #000)"
-        data-aos="fade-up"
       >
         <Image
           className="home-img"
@@ -122,7 +133,6 @@ export const Home = () => {
           src={pavan}
           alt="pavan"
           mt={{ base: "30px" }}
-          data-aos="fade-up"
         />
       </Box>
     </Flex>
@@ -133,7 +143,6 @@ const MERN = styled.div`
   .loading {
     font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
     text-transform: uppercase;
-
     width: 100%;
     line-height: 50px;
     left: 0;
@@ -151,62 +160,4 @@ const MERN = styled.div`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  /* .loading:before {
-    content: "";
-    background: #87e1d9;
-    width: 230px;
-    height: 36px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    margin-left: 33%;
-    animation: 2.5s loadingBefore infinite ease-in-out;
-  }
-
-  @keyframes loadingBefore {
-    0% {
-      transform: translateX(-14px);
-    }
-    50% {
-      transform: translateX(14px);
-    }
-    100% {
-      transform: translateX(-14px);
-    }
-  }
-
-  .loading:after {
-    content: "";
-    background: #00030f;
-    width: 14px;
-    height: 60px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    opacity: 0.5;
-    margin-left: 43%;
-    animation: 2.5s loadingAfter infinite ease-in-out;
-  }
-
-  @keyframes loadingAfter {
-    0% {
-      transform: translateX(-100px);
-    }
-    50% {
-      transform: translateX(1px);
-    }
-    100% {
-      transform: translateX(-100px);
-    }
-  } */
 `;
-
-// export default Home;

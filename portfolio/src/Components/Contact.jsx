@@ -19,7 +19,10 @@ import phone from "../Images/Contacts/smartphone-iphone-svgrepo-com.svg";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { ThemeContext } from "../ThemeContext";
+import { useContext } from "react";
 export const Contact = () => {
+  const { theme } = useContext(ThemeContext);
   useEffect(() => {
     Aos.init(); // Initialize AOS
   }, []);
@@ -31,6 +34,7 @@ export const Contact = () => {
       fontFamily={"sans-serif"}
       mt={"50px"}
       pt={10}
+      color={theme === "dark" ? "white" : "black"}
     >
       <Heading
         mt={10}
@@ -119,6 +123,11 @@ export const Contact = () => {
                 alt="git"
                 display={"block"}
                 m={"auto"}
+                backgroundColor='white'
+                p={2}
+                borderRadius={5}
+                mb={5}
+                mt={5}
               />
               <Link
                 fontWeight={"bold"}
@@ -142,6 +151,11 @@ export const Contact = () => {
                 alt="linkedin"
                 display={"block"}
                 m={"auto"}
+                backgroundColor='white'
+                p={2}
+                borderRadius={5}
+                mb={5}
+                mt={5}
               />
               <Link
                 fontWeight={"bold"}
@@ -165,6 +179,11 @@ export const Contact = () => {
                 alt="email"
                 display={"block"}
                 m={"auto"}
+                backgroundColor='white'
+                p={2}
+                borderRadius={5}
+                mb={5}
+                mt={5}
               />
               <Link
                 fontWeight={"bold"}
@@ -188,6 +207,11 @@ export const Contact = () => {
                 alt="email"
                 display={"block"}
                 m={"auto"}
+                backgroundColor='white'
+                p={2}
+                borderRadius={5}
+                mb={5}
+                mt={5}
               />
               <Link fontWeight={"bold"} href="tel:+919515276376">
                 Phone Number
@@ -200,7 +224,7 @@ export const Contact = () => {
       <Text
         textAlign={"center"}
         mt={10}
-        mb={5}
+        pb={5}
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
         data-aos-duration="700"

@@ -20,6 +20,8 @@ import manakin from "../Images/Projects/Mankin.png";
 import funiro from "../Images/Projects/Funiro.png";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { ThemeContext } from "../ThemeContext";
+import { useContext } from "react";
 
 const project = [
   {
@@ -74,6 +76,7 @@ const project = [
 
 export const Projects = () => {
   const projectsPerRow = useBreakpointValue({ base: 1, lg: 2 });
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     Aos.init(); // Initialize AOS
@@ -87,6 +90,7 @@ export const Projects = () => {
       // pt={"10px"}
       mt={"20px"}
       fontFamily={"sans-serif"}
+      color={theme === "dark" ? "white" : "black"}
     >
       <Heading
         fontSize={"4xl"}
@@ -107,7 +111,7 @@ export const Projects = () => {
         p={5}
       >
         {project.map((el, index) => (
-          <ProjectCard key={index} {...el} index={index} />
+          <ProjectCard key={`project-${index}`} {...el} />
         ))}
       </Grid>
     </Box>
@@ -121,7 +125,6 @@ const ProjectCard = ({
   techStack,
   gitLink,
   projectLink,
-  index,
 }) => {
   return (
     <VStack

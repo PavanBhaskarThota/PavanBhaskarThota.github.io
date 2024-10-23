@@ -4,8 +4,11 @@ import GitHubCalendar from "react-github-calendar";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { ThemeContext } from "../ThemeContext";
+import { useContext } from "react";
 
 export const GitHub = () => {
+  const { theme } = useContext(ThemeContext);
   const selectLastHalfYear = (contributions) => {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
@@ -54,6 +57,7 @@ export const GitHub = () => {
       flexDirection="column"
       margin="auto"
       mt={"20px"}
+      color={theme === "dark" ? "white" : "black"}
     >
       <Text
         fontSize={"3xl"}
@@ -77,7 +81,7 @@ export const GitHub = () => {
       >
         <Box
           maxW={"300px"}
-          border="1px solid #06113C"
+          border={theme === "dark" ? "1px solid white" : "1px solid #06113C"}
           borderRadius="lg"
           h="170px"
           display="flex"
@@ -105,7 +109,7 @@ export const GitHub = () => {
         </Box>
         <Box
           maxW={"300px"}
-          border="1px solid #06113C"
+          border={theme === "dark" ? "1px solid white" : "1px solid #06113C"}
           borderRadius="lg"
           h="170px"
           display="flex"
@@ -137,7 +141,7 @@ export const GitHub = () => {
       >
         <Box
           maxW={"300px"}
-          border="1px solid #06113C"
+          border={theme === "dark" ? "1px solid white" : "1px solid #06113C"}
           borderRadius="lg"
           h="170px"
           display="flex"
@@ -160,7 +164,7 @@ export const GitHub = () => {
 
         <Box
           maxW={"300px"}
-          border="1px solid #06113C"
+          border={theme === "dark" ? "1px solid white" : "1px solid #06113C"}
           borderRadius="lg"
           h="170px"
           display="flex"

@@ -21,6 +21,8 @@ import redux from "../Images/Skills/Redux.svg";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 
 const frontEnd = [
   { title: "HTML5", image: html },
@@ -40,6 +42,7 @@ const backEnd = [
 
 export const Skills = () => {
   const skillsPerRow = useBreakpointValue({ base: 3, md: 4, lg: 5 });
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     Aos.init(); // Initialize AOS
@@ -53,6 +56,7 @@ export const Skills = () => {
       mt={10}
       pt={"50px"}
       fontFamily={"sans-serif"}
+      color={theme === "dark" ? "white" : "black"}
     >
       <Text
         fontSize={"4xl"}
@@ -130,6 +134,9 @@ const FrontEnd = ({ title, image }) => {
         alt={title}
         boxSize={{ base: "30px", md: "50px" }}
         mt={{ base: 3, md: 7 }}
+        backgroundColor="white"
+        p={2}
+        borderRadius={5}
       />
       <Text
         className="skills-card-name"
@@ -151,8 +158,11 @@ const BackEnd = ({ title, image }) => {
         className="skills-card-img"
         src={image}
         alt={title}
-        boxSize={{ base: "30px", md: "50px" }}
+        boxSize={{ base: "30px", md: "60px" }}
         mt={{ base: 3, md: 7 }}
+        backgroundColor="white"
+        p={2}
+        borderRadius={5}
       />
       <Text
         className="skills-card-name"

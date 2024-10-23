@@ -8,8 +8,11 @@ import project from "../Images/project-structure.png";
 import dsa from "../Images/DSA-structure.png";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 
 export const About = () => {
+  const { theme } = useContext(ThemeContext);
   useEffect(() => {
     Aos.init(); // Initialize AOS
   }, []);
@@ -23,6 +26,7 @@ export const About = () => {
       id="about"
       className="about section"
       fontFamily={"sans-serif"}
+      color={theme === "dark" ? "white" : "black"}
     >
       <Heading
         textAlign="center"
@@ -88,13 +92,14 @@ export const About = () => {
                 display="block"
                 m="auto"
                 mb="10px"
+                backgroundColor="white"
+                p={1}
+                borderRadius={5}
               />
-              <Text fontSize="14px" mb="10px" color="black" fontWeight="bold">
+              <Text fontSize="14px" mb="10px" fontWeight="bold">
                 Coding
               </Text>
-              <Text fontSize="12px" color="black">
-                1200+ Hours
-              </Text>
+              <Text fontSize="12px">1200+ Hours</Text>
             </Box>
             <Box
               w="30%"
@@ -111,12 +116,10 @@ export const About = () => {
                 m="auto"
                 mb="10px"
               />
-              <Text fontSize="14px" mb="10px" color="black" fontWeight="bold">
+              <Text fontSize="14px" mb="10px" fontWeight="bold">
                 Projects
               </Text>
-              <Text fontSize="12px" color="black">
-                4+ Completed
-              </Text>
+              <Text fontSize="12px">4+ Completed</Text>
             </Box>
             <Box
               w="30%"
@@ -132,13 +135,14 @@ export const About = () => {
                 display="block"
                 m="auto"
                 mb="10px"
+                backgroundColor="white"
+                p={1}
+                borderRadius={5}
               />
-              <Text fontSize="14px" mb="10px" color="black" fontWeight="bold">
+              <Text fontSize="14px" mb="10px" fontWeight="bold">
                 DSA
               </Text>
-              <Text fontSize="12px" color="black">
-                500+ Solved
-              </Text>
+              <Text fontSize="12px">500+ Solved</Text>
             </Box>
           </Flex>
           <Box mt="40px">

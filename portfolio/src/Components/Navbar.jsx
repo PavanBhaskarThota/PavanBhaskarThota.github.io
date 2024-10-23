@@ -13,6 +13,7 @@ import {
   useDisclosure,
   Link as ChakraLink,
   Link,
+  Icon,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import styled from "styled-components";
@@ -20,11 +21,17 @@ import { animateScroll as scroll } from "react-scroll";
 import hamburger from "../Images/Navbar/hamburger-menu-svgrepo-com2.svg";
 import close from "../Images/Navbar/up-arrow-svgrepo-com.svg";
 import { Link as RouterLink } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
+import { CiLight } from "react-icons/ci";
+import { MdDarkMode } from "react-icons/md";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 export const Navbar = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const [placement, setPlacement] = useState("top");
   const [activeLink, setActiveLink] = useState("home");
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const scrollTo = (elementId, section) => {
     scroll.scrollTo(document.getElementById(elementId).offsetTop - 60, {
@@ -35,30 +42,33 @@ export const Navbar = () => {
     onClose();
   };
 
+  console.log(theme);
+
   const downloadResume = () => {
-    const resumeLink =
-      "https://drive.google.com/file/d/14XxFxDJlsIPQgYlB5G5NN4YsEnwyeNiJ/view?usp=sharing"; // Replace with your actual Google Drive link
+    const resumeLink ="https://drive.google.com/file/d/1zizFswuwsDPp8SBMjYJQcO-qCULT_q3V/view?usp=sharing";
+     
     window.open(resumeLink, "_blank");
   };
 
-  // https://drive.google.com/file/d/18BO9iV2epsTE5vUC8ZsScPTTDwV6txQp/view?usp=sharing
-
   return (
-    <Box bgColor={"white"} fontFamily={"sans-serif"}>
-      <DIV>
-        <Box
-          //display={{ base: "none", md: "inline" }}
-          className="pblogo"
-          id="nav-menu"
-          pt={5}
-        >
+    <Box
+      fontFamily={"sans-serif"}
+      bgColor={theme === "dark" ? "black" : "white"}
+      color={theme === "dark" ? "white" : "black"}
+    >
+      <DIV theme={theme}>
+        <Box className="pblogo" id="nav-menu" pt={5}>
           <Heading
             fontFamily={"sans-serif"}
-            bgGradient="linear(to-r, #0a194e, #97a7e1)"
+            bgGradient={
+              theme === "dark"
+                ? "linear(to-r, #e4e9f5, #c3dafe)"
+                : "linear(to-r, #0a194e, #97a7e1)"
+            }
+            // bgGradient="linear(to-r, #0a194e, #97a7e1)"
             bgClip="text"
             onClick={() => scrollTo("home")}
             cursor={"pointer"}
-            //display={{ base: "none", md: "inline" }}
             mr={4}
             ml={4}
             userSelect={"none"}
@@ -68,19 +78,45 @@ export const Navbar = () => {
         </Box>
 
         <Box
-          w={{ base: "20%", md: "0" }}
-          display={{ base: "block", md: "none" }}
+          w={{ base: "30%", md: "0" }}
+          display={{ base: "flex", md: "none" }}
+          justifyContent={"space-around"}
           pt={5}
+          gap={4}
         >
-          {" "}
-          <Image
+          <Box h={"40px"}>
+            <Icon
+              fontSize="2xl"
+              w={"40px"}
+              h={"40px"}
+              pt={2}
+              color={theme === "dark" ? "white" : "black"}
+              onClick={toggleTheme}
+            >
+              {theme === "dark" ? <CiLight /> : <MdDarkMode />}
+            </Icon>
+          </Box>
+
+          <Box>
+            <Icon
+              fontSize="2xl"
+              w={"40px"}
+              h={"40px"}
+              pt={2}
+              onClick={onToggle}
+            >
+              <RxHamburgerMenu />
+            </Icon>
+          </Box>
+
+          {/* <Image
             src={hamburger}
-            w={"50%"}
+            w={"40%"}
             colorscheme="blue"
             onClick={onToggle}
             display={"block"}
-            m={"auto"}
-          />
+            // m={"auto"}
+          /> */}
         </Box>
 
         {/* Drawer */}
@@ -92,11 +128,16 @@ export const Navbar = () => {
               borderBottomWidth="1px"
               textAlign={"center"}
               onClick={onClose}
-              // color={"red"}
+              bgColor={theme === "dark" ? "black" : "white"}
+              color={theme === "dark" ? "white" : "black"}
             >
               <Image src={close} alt="close" display={"block"} m={"auto"} />
             </DrawerHeader>
-            <DrawerBody textAlign={"center"}>
+            <DrawerBody
+              textAlign={"center"}
+              bgColor={theme === "dark" ? "black" : "white"}
+              color={theme === "dark" ? "white" : "black"}
+            >
               <Flex direction={"column"}>
                 <ChakraLink
                   className={`nav-link home ${
@@ -250,30 +291,51 @@ export const Navbar = () => {
           </ChakraLink>
         </Flex>
 
-        <Button
-          bgColor={"#0a194e"}
-          color={"white"}
-          mb={3}
-          mr={3}
-          mt={5}
-          display={{ base: "none", md: "inline" }}
-          onClick={downloadResume}
-          borderRadius={"30px"}
-          _hover={{
-            backgroundColor: "#ffffff",
-            color: "#0a194e",
-            border: "1px solid #0a194e",
-          }}
+        <Box
+          display={{ base: "none", md: "flex" }}
+          gap={10}
+          alignItems="center"
+
+          // mt={3}
         >
-          <ChakraLink
-            as={RouterLink}
-            id="resume-button-1"
-            className="nav-link resume"
-            to="https://drive.google.com/uc?export=download&id=14XxFxDJlsIPQgYlB5G5NN4YsEnwyeNiJ"
+          <Box h={"40px"}>
+            <Icon
+              fontSize="2xl"
+              h="100%"
+              w="100%"
+              pt={2}
+              color={theme === "dark" ? "white" : "black"}
+              onClick={toggleTheme}
+            >
+              {theme === "dark" ? <CiLight /> : <MdDarkMode />}
+            </Icon>
+          </Box>
+
+          <Button
+            bgColor={"#0a194e"}
+            color={"white"}
+            mb={3}
+            mr={3}
+            mt={5}
+            display={{ base: "none", md: "inline" }}
+            onClick={downloadResume}
+            borderRadius={"30px"}
+            _hover={{
+              backgroundColor: "#ffffff",
+              color: "#0a194e",
+              border: "1px solid #0a194e",
+            }}
           >
-            Resume
-          </ChakraLink>
-        </Button>
+            <ChakraLink
+              as={RouterLink}
+              id="resume-button-1"
+              className="nav-link resume"
+              to="https://drive.google.com/uc?export=download&id=14XxFxDJlsIPQgYlB5G5NN4YsEnwyeNiJ"
+            >
+              Resume
+            </ChakraLink>
+          </Button>
+        </Box>
       </DIV>
     </Box>
   );
@@ -287,16 +349,14 @@ const DIV = styled.div`
   gap: 10px;
   padding-bottom: 10px;
   position: fixed;
-  background-color: white;
+  background-color: ${({ theme }) => (theme === "dark" ? "black" : "white")};
   z-index: 1;
 
   @media (max-width: 790px) {
     justify-content: space-between;
-    /* width: 85%;
-    margin: auto; */
   }
 
   .active {
-    color: #5d0d1db6;
+    color: #0391d2;
   }
 `;

@@ -45,8 +45,9 @@ export const Navbar = () => {
   console.log(theme);
 
   const downloadResume = () => {
-    const resumeLink ="https://drive.google.com/file/d/1zizFswuwsDPp8SBMjYJQcO-qCULT_q3V/view?usp=sharing";
-     
+    const resumeLink =
+      "https://drive.google.com/file/d/1Jro140NnUpskgH_BB5MD1bezseLOszs_/view?usp=sharing";
+
     window.open(resumeLink, "_blank");
   };
 

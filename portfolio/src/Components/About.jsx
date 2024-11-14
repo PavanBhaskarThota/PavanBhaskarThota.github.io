@@ -21,8 +21,8 @@ export const About = () => {
       width={"90%"}
       m={"auto"}
       mt="50px"
-      pt={"50px"}
-      mb="50px"
+      pt={"100px"}
+      mb="100px"
       id="about"
       className="about section"
       fontFamily={"sans-serif"}
@@ -43,7 +43,6 @@ export const About = () => {
         justifyContent="space-between"
         gap={3}
         direction={{ base: "column", md: "row" }}
-        // flexWrap={"wrap"}
       >
         <Box
           w={{ base: "100%", md: "50%" }}

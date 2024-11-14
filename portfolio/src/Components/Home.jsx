@@ -21,7 +21,7 @@ export const Home = () => {
   const { theme } = useContext(ThemeContext);
   const downloadResume = () => {
     const resumeLink =
-      "https://drive.google.com/file/d/1zizFswuwsDPp8SBMjYJQcO-qCULT_q3V/view?usp=sharing";
+      "https://drive.google.com/file/d/1Jro140NnUpskgH_BB5MD1bezseLOszs_/view?usp=sharing";
     window.open(resumeLink, "_blank");
   };
 
@@ -88,7 +88,12 @@ export const Home = () => {
             </div>
           </MERN>
         </Heading>
-        <Text fontSize="lg" mt="20px" id="user-detail-name">
+        <Text
+          fontSize="lg"
+          mt="20px"
+          id="user-detail-name"
+          color={theme === "dark" ? "white" : "black"}
+        >
           I like to craft solid and scalable{" "}
           <span style={{ fontWeight: "bold", letterSpacing: "2px" }}>MERN</span>{" "}
           products with great user experiences.

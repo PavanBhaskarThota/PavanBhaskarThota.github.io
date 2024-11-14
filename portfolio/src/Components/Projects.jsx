@@ -12,7 +12,8 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 
-import edukin from "../Images/Projects/Edukin.png";
+import EQBookLibrary from "../Images/Projects/EQBook.png";
+import Memento from "../Images/Projects/Memento.png";
 import tripwiz from "../Images/Projects/Tripwiz.png";
 import freshBasket from "../Images/Projects/FreshBasket.png";
 import Aspireo from "../Images/Projects/Aspireo_Home.1.png";
@@ -25,21 +26,38 @@ import { useContext } from "react";
 
 const project = [
   {
-    title: "Edukin",
-    image: edukin,
-    description: "Created a Solo Frontend project",
-    techStack: ["HTML", "CSS", "JS"],
-    gitLink: "https://github.com/PavanBhaskarThota/potent-toothbrush-7925",
-    projectLink: "https://dreamy-vacherin-64e712.netlify.app/",
+    title: "Aspireo",
+    image: Aspireo,
+    description: "Created Collabrative MERN Stack project",
+    techStack: ["Express.js", "MongoDb", "React", "Node.js"],
+    gitLink: "https://github.com/PavanBhaskarThota/Aspireo",
+    projectLink: "https://aspireo.vercel.app/",
   },
+
   {
     title: "TripWiz",
     image: tripwiz,
     description: "Created a Collabrative Frontend project",
     techStack: ["HTML", "CSS", "JS", "React", "Redux"],
     gitLink: "https://github.com/adilrza0/adaptable-oven-8035",
-    projectLink: "https://tripwiz-vs39.vercel.app/",
+    projectLink: "https://tripwiz.vercel.app/",
   },
+  {
+    title: "Memento",
+    image: Memento,
+    description: "Created a Solo MERN project",
+    techStack: ["React", "Node.js", "Express.js", "MongoDb"],
+    gitLink: "https://github.com/PavanBhaskarThota/Memories",
+    projectLink: "https://memento-one.vercel.app/",
+  },
+  // {
+  //   title: "EQ Book Library",
+  //   image: EQBookLibrary,
+  //   description: "Created a Solo MERN project",
+  //   techStack: ["React", "Node.js", "Express.js", "MongoDb"],
+  //   gitLink: "https://github.com/PavanBhaskarThota/english-quest",
+  //   projectLink: "https://english-quest-lilac.vercel.app/",
+  // },
   {
     title: "FreshBasket",
     image: freshBasket,
@@ -64,14 +82,6 @@ const project = [
     gitLink: "https://github.com/PavanBhaskarThota/Furniro",
     projectLink: "https://furniro-seven.vercel.app/",
   },
-  {
-    title: "Aspireo",
-    image: Aspireo,
-    description: "Created Collabrative MERN Stack project",
-    techStack: ["Express.js", "MongoDb", "React", "Node.js"],
-    gitLink: "https://github.com/PavanBhaskarThota/Aspireo",
-    projectLink: "https://aspireo.vercel.app/",
-  },
 ];
 
 export const Projects = () => {
@@ -87,7 +97,7 @@ export const Projects = () => {
       w={{ base: "95%", md: "70%" }}
       m={"auto"}
       id="projects"
-      // pt={"10px"}
+      pt={"10px"}
       mt={"20px"}
       fontFamily={"sans-serif"}
       color={theme === "dark" ? "white" : "black"}
